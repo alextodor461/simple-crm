@@ -27,6 +27,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { MatCardModule } from '@angular/material/card';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MatCardModule } from '@angular/material/card';
     ToolbarComponent,
     DashboardComponent,
     UserComponent,
-    AddUserComponent
+    AddUserComponent,
+    UserDetailComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

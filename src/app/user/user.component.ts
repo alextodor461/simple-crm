@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddUserComponent } from '../add-user/add-user.component';
 import { User } from 'src/models/user.class';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -18,12 +19,13 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //Daten aus FireBase laden
-    this.firestore.collection('users').valueChanges().subscribe((changes: any) =>{
+    //Daten aus FireBase laden und die ID rauslesen mit "idField"
+    this.firestore.collection('users').valueChanges({idField: 'customIdName'}).subscribe((changes: any) =>{
       this.allUsers = changes;
       console.log(changes);
     })
   }
+  
 
   openDialog(): void {
    this.dialog.open(AddUserComponent);
